@@ -1,0 +1,21 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: coisini-zuul-server
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        serviceName: ${spring.application.name}    # 注册到consul的服务名称
+zuul:
+  # 接口访问前缀 prefix
+  # prefix: /v1 
+  routes:
+    ribbon:
+      path: /ribbon/**
+      serviceId: coisini-consumer-server  # 转发到消费者 /ribbon/
+    feign:
+      path: /feign/**
+      serviceId: coisini-consumer-server  # 转发到消费者 /feign/
