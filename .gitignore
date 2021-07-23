@@ -31,3 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
+/coisini-ms/*.exe
+/coisini-ui/node_modules
